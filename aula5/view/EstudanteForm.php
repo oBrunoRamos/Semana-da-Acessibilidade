@@ -7,7 +7,7 @@
     <title>Cadastro de estudante</title>
 </head>
 <body>
-<form method="POST" action="/aula5/?controller=Estudante&acao=salvar">
+<form class="m-4" method="POST" action="/aula5/?controller=Estudante&acao=salvar">
   <div class="mb-3">
     <label for="nome" class="form-label">Nome</label>
     <input type="text" class="form-control" id="nome" name='nome' aria-describedby="emailHelp">
