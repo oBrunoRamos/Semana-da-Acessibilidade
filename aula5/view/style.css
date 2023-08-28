@@ -1,0 +1,61 @@
+
+            body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .fundo{
+                font-family: 'Courier New', Courier, monospace;
+                display: flex;
+                height: 50vh;
+                width: 50vw;
+                padding: 2rem;
+                background: grey;
+                border-radius: 10px;
+            }
+            .fundo img{
+                width: 20rem;
+                border-radius: 10px;
+            }
+            .fundo button{
+                width: 20.0rem;
+                height: 2.5rem;
+                border-radius: 10px;
+                border: none;
+                color: white;
+                background: grey;
+                cursor: pointer;
+            }
+            .fundo button a{
+                text-decoration: none; 
+                color:white;
+            }
+            .left{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 10pt;
+                width: 40%;
+                border-radius: 10px;
+                flex-flow: column;
+                background: lightpink;
+                padding: 2rem;
+            }
+            .right{
+                display: flex;
+
+                padding: 2rem;
+                
+            }
+            .tabela {
+                background: transparent;
+                color: white;
+                height: 100%;
+                width: 100%;
+                border-collapse: collapse;
+            }
+            .tabela tr, td{
+                border-top: solid 1px black;
+                border-bottom: solid 1px black;
+    
+            }

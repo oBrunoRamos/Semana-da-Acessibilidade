@@ -14,14 +14,18 @@ class EstudanteController{
     }
 
     public function salvar(){
+        if($_SERVER['REQUEST_METHOD'] == 'GET'){
+            require_once $_SERVER['DOCUMENT_ROOT'].'/aula5/view/EstudanteForm.php';
         
-        $nome = $_GET['nome'];
-        $idade = $_GET['idade'];
+        }elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $nome = $_POST['nome'];
+            $idade = $_POST['idade'];
 
-        $estudanteModel = new EstudanteModel();
-        $estudanteModel->salvarModel($nome, $idade);
+            $estudanteModel = new EstudanteModel();
+            $estudanteModel->salvarModel($nome, $idade);
 
-
-
+            header('Location: http://localhost:8081/aula5/?controller=Estudante&acao=listarController');
+            exit();
+        }
     }
 };
