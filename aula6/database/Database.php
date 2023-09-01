@@ -47,10 +47,6 @@
 
         public function insert(string $sql){
             $this->openConnection();
-
-            // var_dump('parou aqui');
-            // die;
-
             $result = $this->connection->query($sql);
             $this->connection->close();
         }
