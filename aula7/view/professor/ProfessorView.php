@@ -27,7 +27,7 @@
                     <?php foreach($professores as $key => $professorAtual){ ?>
                     <tr scope="row">
                         <td scope="col">
-                            <a  type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"  class="btn btn-danger select-user-to-delete" data-id='<?php echo $professorAtual['id']; ?>'>Excluir</a> 
+                            <a  type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"  class="btn btn-danger select-user-to-delete" data-id='<?php echo $professorAtual['id'];?>'>Excluir</a> 
                             <a href="/<?php echo FOLDER; ?>/?controller=Professor&acao=editar&id=<?php echo $professorAtual['id'];?>" class="btn btn-info me-5 text-light">Editar</a>
                         
                             Nome:
@@ -58,8 +58,8 @@
                     Você tem certeza que deseja excluir esse estudante
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button id='delete-user' type="button" class="btn btn-danger ">Excluir</button>
+                    <button type="button" class="btn btn-secondary" id="close-modal" data-bs-dismiss="modal">Close</button>
+                    <button  type="button" class="btn btn-danger" id='delete-user-button'>Excluir</button>
                 </div>
                 </div>
             </div>
@@ -69,7 +69,23 @@
     
     <script>
     
+        $(".select-user-to-delete").on( "click", function () {
+            let idRegistry = $(this).attr('data-id');
+            $('#delete-user-button').attr("data-id", idRegistry);
+        });
+        $("#delete-user-button").on('click', function () {
+            const idRegistry = $(this).attr('data-id');
 
+
+            let url = '/<?php echo FOLDER;?>/?controller=Professor&acao=excluir&id=' + idRegistry;
+
+            $.get(url, function(data){
+                $('#close-modal').click();
+                location.reload()
+            })
+
+            
+        })
 
     </script>
 </html>
